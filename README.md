@@ -3,7 +3,7 @@
 This repository contains the code to reproduce the experiments in our IJCAI 2024 paper. 
 
 To replicate the experiments reported in the paper and in the supplementary material:
-1. Install the requirements: 'pip install -r requirements.txt'
+1. Create a Python 3.11 environment and install the requirements: 'pip install -r requirements.txt'
 2. Run "python download_pargent2022_datasets.py" to download the datasets used in the high-cardinality categorical features benchmark study.
 3. Afterwards, the notebooks can be executed to reproduce the results. Note that the GPU configurations in the first cell of each notebook might need to be adjusted for the user-specific setup. 
 
