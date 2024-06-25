@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow import keras
+from tensorflow.keras.optimizers import AdamW
 from tensorflow.keras.optimizers.legacy import Adam
-from tensorflow_addons.optimizers import AdamW
 from keras.models import Sequential, Model
 from keras.layers import Dense, Input, Reshape, Embedding, Concatenate, LayerNormalization, BatchNormalization, Dropout, Add
 import numpy as np
@@ -379,7 +379,7 @@ def get_model(model_name="", input_size=None, output_size=None, target="", perc_
         outputs = Dense(output_dim, activation='linear')(x)
         
         model = Model(inputs=inputs, outputs=outputs, name="ResNet")        
-        optimizer = tf.keras.optimizers.AdamW(learning_rate=0.0001,weight_decay=0.00001) # Adam(learning_rate=3e-4, decay=1e-6)
+        optimizer = AdamW(learning_rate=0.0001,weight_decay=0.00001) # Adam(learning_rate=3e-4, decay=1e-6)
         
     else:
         model = Sequential()

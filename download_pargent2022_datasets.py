@@ -44,24 +44,24 @@ dataset_ids = {"Click_prediction_small": 41434,
 
 if __name__ == '__main__':
     for dataset_name in dataset_ids:
-        if not os.path.exists(f"./raw/{dataset_name}"):
-            os.mkdir(f"./raw/{dataset_name}")
+        if not os.path.exists(f"./data/raw/{dataset_name}"):
+            os.makedirs(f"./data/raw/{dataset_name}")
 
-        if not os.path.exists(f"./raw/{dataset_name}/{dataset_name}.csv"):
+        if not os.path.exists(f"./data/raw/{dataset_name}/{dataset_name}.csv"):
             print(f"Download {dataset_name} dataset...")
             xml_data = getxml(f"https://api.openml.org/api/v1/data/{dataset_ids[dataset_name]}")
             url = xml_data['oml:data_set_description']["oml:url"]
 
-            urllib.request.urlretrieve(url, f"./raw/{dataset_name}/{dataset_name}.arff")
+            urllib.request.urlretrieve(url, f"./data/raw/{dataset_name}/{dataset_name}.arff")
 
             try:
-                dataset = arff.load(open(f"./raw/{dataset_name}/{dataset_name}.arff", 'rt'))
+                dataset = arff.load(open(f"./data/raw/{dataset_name}/{dataset_name}.arff", 'rt'))
             except:
                 print(f"Unable to download {dataset_name}")
                 continue
             data = pd.DataFrame(dataset['data'], columns=[i[0] for i in dataset["attributes"]])
 
-            data.to_csv(f"./raw/{dataset_name}/{dataset_name}.csv")
+            data.to_csv(f"./data/raw/{dataset_name}/{dataset_name}.csv")
             print(f"Finished {dataset_name} dataset Download")
 
         else:

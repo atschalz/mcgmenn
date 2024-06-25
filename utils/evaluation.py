@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from sklearn.metrics import accuracy_score as acc
 from tensorflow.keras.metrics import CategoricalAccuracy as cat_acc
-from tensorflow_addons.metrics import F1Score
+# from tensorflow_addons.metrics import F1Score
 from sklearn.metrics import roc_auc_score as auroc
 from sklearn.metrics import f1_score as f1
 from sklearn.metrics import mean_squared_error as mse
@@ -42,7 +42,7 @@ def get_metrics(y_true,y_pred,target):
         # Inputs: True=N*C OHE matrix, Pred=N*C Softmax matrix
         res = {
             "Accuracy": cat_acc()(y_true, y_pred).numpy(),
-            "F1": F1Score(num_classes=y_true.shape[1], average="macro")(y_true, y_pred).numpy(),
+            # "F1": F1Score(num_classes=y_true.shape[1], average="macro")(y_true, y_pred).numpy(),
             "AUROC": auroc(y_true, y_pred, multi_class="ovo", average="macro")
                        }
     return res

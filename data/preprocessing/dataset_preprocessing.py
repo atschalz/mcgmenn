@@ -23,7 +23,7 @@ simplefilter(action='ignore', category=FutureWarning)
 
 def process_dataset(dataset_name, target="", mode="train_val_test", RS=42, hct=10, test_ratio=0.2, val_ratio=0.1, folds=5):
     if not os.path.exists(f"../data/prepared/{dataset_name}"):
-        os.mkdir(f"../data/prepared/{dataset_name}")
+        os.makedirs(f"../data/prepared/{dataset_name}")
 
     new_path = f"{mode}_RS{RS}_hct{hct}"
     if mode == "cv":
