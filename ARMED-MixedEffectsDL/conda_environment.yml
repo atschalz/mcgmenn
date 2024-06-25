@@ -1,0 +1,37 @@
+name: ARMEDConda
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - cudatoolkit=10.1.243
+  - cudnn=7.6.4=cuda10.1_0
+  - pip=20.2.2
+  - python=3.8.5
+  - pip:
+    - h5py==2.10.0
+    - ipykernel==6.2.0
+    - ipython==7.18.1
+    - ipywidgets==7.6.2
+    - jupyter==1.0.0
+    - matplotlib==3.4.2
+    - nibabel==3.2.1
+    - nilearn==0.7.0
+    - notebook==6.1.5
+    - numpy==1.19.2
+    - pandas==1.1.2
+    - pillow==7.2.0
+    - pybids==0.12.4
+    - pydicom==2.1.2
+    - scikit-image==0.18.1
+    - scikit-learn==0.23.2
+    - scipy==1.5.2
+    - seaborn==0.11.0
+    - statsmodels==0.12.0
+    - tensorboard==2.3.0
+    - tensorflow==2.3.0
+    - tensorflow-addons==0.13.0
+    - tensorflow-probability==0.11.1
+    - termcolor==1.1.0
+    - tqdm==4.50.2
+    - xgboost==1.2.0
+prefix: /project/bioinformatics/DLLab/shared/CondaEnvironments/Kevin385Ray
